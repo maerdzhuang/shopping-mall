@@ -51,7 +51,7 @@
 		姓名:&nbsp;<input type="text" name="username" id="username"
 			value="<%=vname%>" autofocus="on" /><br> <br> 密码:&nbsp;<input
 			type="password" name="password" id="password" value="<%=vpass%>" /><br>
-		<br> <input type="checkbox" name="isUseCookie" value="是否自动登录" />下次是否自动登录
+		<br> <input type="checkbox" name="isUseCookie" value="是否自动登录" checked="checked"/>下次是否自动登录
 		&nbsp;&nbsp; <input type="submit" value="登陆" /> <br>
 	</form>
 	<!-- <a href="admin/register.jsp">注册</a> -->

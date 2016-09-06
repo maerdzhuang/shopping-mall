@@ -25,11 +25,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	div{
 		float:left;
 		/* 外补丁*/
-		margin:50px 50px;
+		margin:50px 0 0 50px;
 		box-shadow:5px 5px 3px rgba(0,0,255,0.2);
+		width:260px;
+		height:auto;
+		background:white;
 	}
-	dl:hover {
-		transform:scale(1.5,1.5);
+	dt:hover {
+		transform:scale(1.5,1.5) rotate(15deg);
 	}
 	</style>
 </head>
@@ -52,9 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<dl>
 			<dt>
 				<a href="detail.jsp?id=<%=it.getId()%>"><img src="images/<%=it.getImage()%>"
-					width="200px" height="150px"></a>
+					width="250px" height="300px"></a>
 			</dt>
-			<dt>
+			<dt style="word-break:keep_all">
 				编号:<%=it.getId()%>&nbsp;<%=it.getName()%>&nbsp;$<%=it.getPrice()%></dt>
 		</dl>
 	</div>

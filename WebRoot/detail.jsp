@@ -26,18 +26,20 @@
 	-->
 <style type="text/css">
 #showDetail {
+	border:2px solid black;
+	border-radius:5px;
 	position: absolute;
-	left: 30%;
-	top: 10%;
+	left: 35%;
+	top: 15%;
 	box-shadow: 15px 15px 6px rgba(0, 0, 255, 0.2);
 }
 
 #history {
 	box-shadow: 3px 3px 3px rgba(0, 0, 255, 0.2);
-	width: 125px;
-	height: 125px;
+	width: 140px;
+	height: 160px;
 	padding: 1px;
-	margin: 10px;
+	margin: 20px 0 0 30px;
 }
 
 #history>dl:hover {
@@ -93,7 +95,7 @@
 	<div id="showDetail">
 		<dl>
 			<dt>
-				<img src="images/<%=ite.getImage()%>" width="400px" height="300px">
+				<img src="images/<%=ite.getImage()%>" width="400px" height="500px">
 			</dt>
 			<br>
 			<dd>
@@ -105,7 +107,7 @@
 		}
 	%>
 
-	<h3>浏览记录</h3>
+	<h3>&nbsp;&nbsp;&nbsp;浏览记录</h3>
 	<%
 		ItemDao itds = new ItemDao();
 		ArrayList<Item> items = itds.getCookie(s);
@@ -117,7 +119,7 @@
 		<dl>
 			<dt>
 				<a href="detail.jsp?id=<%=it.getId()%>" target="_blank"><img
-					src="images/<%=it.getImage()%>" width="100px" height="75px"></a>
+					src="images/<%=it.getImage()%>" width="75px" height="100px"></a>
 			</dt>
 			<dt>
 				编号:<%=it.getId()%>&nbsp;<%=it.getName()%>&nbsp;$<%=it.getPrice()%>
