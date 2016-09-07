@@ -119,7 +119,7 @@
 		<dl>
 			<dt>
 				<a href="detail.jsp?id=<%=it.getId()%>" target="_blank"><img
-					src="images/<%=it.getImage()%>" width="75px" height="100px"></a>
+					src="images/<%=it.getImage()%>" width="75px" height="100px" alt="图片丢失"></a>
 			</dt>
 			<dt>
 				编号:<%=it.getId()%>&nbsp;<%=it.getName()%>&nbsp;$<%=it.getPrice()%>

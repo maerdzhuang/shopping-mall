@@ -31,17 +31,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		height:auto;
 		background:white;
 	}
-	dt:hover {
+	dl>#image:hover {
 		transform:scale(1.5,1.5) rotate(15deg);
 	}
 	</style>
 </head>
 
 <body style="padding:0 auto;background:rgba(0,125,125,0.2);">
-	<h1>商品展示</h1>
-	<h2><a href="login.jsp">后台登录</a></h2>
+	<h2>商品展示&nbsp&nbsp<a href="login.jsp">后台登录</a></h2>
 	<hr>
-
+	<!-- 头部背景 -->
+	<jsp:include page="slideImage.jsp"></jsp:include>
 	<%
   	ItemDao itd = new ItemDao();
   	ArrayList<Item> items = itd.getAllitems();
@@ -53,9 +53,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<div>
 		<dl>
-			<dt>
+			<dt id="image">
 				<a href="detail.jsp?id=<%=it.getId()%>"><img src="images/<%=it.getImage()%>"
-					width="250px" height="300px"></a>
+					width="250px" height="300px" alt="图片丢失"></a>
 			</dt>
 			<dt style="word-break:keep_all">
 				编号:<%=it.getId()%>&nbsp;<%=it.getName()%>&nbsp;$<%=it.getPrice()%></dt>
