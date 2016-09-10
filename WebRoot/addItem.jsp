@@ -20,23 +20,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<link type="text/css"  rel="stylesheet" href="css/table.css">
   </head>
   
   <body>
-  <h1>添加商品</h1>
-  <hr/>
+  <div id="nav">
+	<jsp:include page="header02.jsp"/>
+</div>
+  <div id="content">
   <form action="AddItem" method="post">
-  	商品名称: <input type="text" name="name" 
-  	placeholder="必填" request/><br><br>
-  	商品价格:	<input type="number" name="price" step="0.1" 
-  	placeholder="必填，必须是数字" request/><br><br>
-  	<!-- 利用正则表达式进行匹配pattern="^\d+\.((jpg)|(bmp))" -->
-  	<!-- 商品图片: <input type="text" name="image" pattern="^\d+\.((jpg)|(bmp))" 
-  	placeholder="格式:数字(.jpg或.bmp)"request/><br><br> -->
-  	商品图片: <input type="file" name="image" accept="image/*" 
-  	request/><br><br> 
-  <input type="submit" value="提交"/>
+  <table>
+  <tr>
+  <th>商品名称</th>
+  <th>商品价格</th>
+  <th>商品图片</th>
+  <tr>
+  <tr>
+  	<td><input type="text" name="name" 
+  	placeholder="必填" request autofocus="on"/></td>
+  	<td><input type="number" name="price" step="0.1" 
+  	placeholder="必填，必须是数字" request/></td>
+  	<td><input type="file" name="image" accept="image/*" request/></td>
+  </tr>
+  <tr>
+  <td colspan='3'><input type="submit" value="提交"/></td>
+  </tr>
+  </table>
   </form>
+  </div>
   </body>
 </html>

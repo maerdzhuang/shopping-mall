@@ -93,7 +93,7 @@ public class DoUser extends HttpServlet {
 	  	out.println("<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"UTF-8\"><title>信息输入</title></head>");
 		if (ud.isMatch(myUser))
 		{
-			out.println("<body><h1><a href='addItem.jsp'>添加商品</a></h1></body>");
+			response.sendRedirect("updateItem.jsp");
 		}
 		else
 			out.println("<body><h1 style='color:red;'><a href='login.jsp'>登录失败,重新登陆<a><h1></body>");

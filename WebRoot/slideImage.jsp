@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <div id="header" style="width:80%;height:auto;"></div>
+  <div id="header" style="width:100%;height:auto;"></div>
   	<!-- 导入滚动图片函数 -->
   	<script src="js/silid.js" type="text/javascript"></script>
   </body>

@@ -22,14 +22,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<style type="text/css">
-	div{
+	
+	div#singleItem{
 		float:left;
 		/* 外补丁*/
-		margin:50px 0 0 50px;
-		box-shadow:5px 5px 3px rgba(0,0,255,0.2);
+		margin:50px 0 0 60px;
+		box-shadow:10px 10px 50px grey;
+		border-radius:25px;
+		/* outline:rgba(128,64,0,0.8) ridge 16px; */
 		width:260px;
 		height:auto;
 		background:white;
+		font: 16px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+		text-align: center;
+		background:rgba(0,189,255,0.2);
+	}
+	dl>#font{
+		word-break:keep_all;
 	}
 	dl>#image:hover {
 		transform:scale(1.5,1.5) rotate(15deg);
@@ -37,11 +46,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</style>
 </head>
 
-<body style="padding:0 auto;background:rgba(0,125,125,0.2);">
-	<h2>商品展示&nbsp&nbsp<a href="login.jsp">后台登录</a></h2>
-	<hr>
+<body>
+	<div id="nav">
+	<jsp:include page="header.jsp"></jsp:include>
+	</div>
+	<div id="header" style="text-align:center;">
 	<!-- 头部背景 -->
 	<jsp:include page="slideImage.jsp"></jsp:include>
+	</div>
+	<div id="content">
 	<%
   	ItemDao itd = new ItemDao();
   	ArrayList<Item> items = itd.getAllitems();
@@ -51,18 +64,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  	{
    %>
 
-	<div>
+	<div id="SingleItem">
 		<dl>
 			<dt id="image">
 				<a href="detail.jsp?id=<%=it.getId()%>"><img src="images/<%=it.getImage()%>"
 					width="250px" height="300px" alt="图片丢失"></a>
 			</dt>
-			<dt style="word-break:keep_all">
-				编号:<%=it.getId()%>&nbsp;<%=it.getName()%>&nbsp;$<%=it.getPrice()%></dt>
+			<dt id="font">
+				编号:<%=it.getId()%>&nbsp;<%=it.getName()%>&nbsp;$<%=it.getPrice()%>
+			</dt>
 		</dl>
 	</div>
 
 	<%	}
    } %>
+   </div>
 </body>
 </html>

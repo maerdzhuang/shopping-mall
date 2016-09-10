@@ -19,3 +19,4 @@
 			i=0;
 	}
 	window.setInterval(showing,2000);
+	showing();

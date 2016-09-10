@@ -22,9 +22,8 @@
 <!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	<link type="text/css"  rel="stylesheet" href="css/form.css">
 </head>
-
 <body>
 	<%
 		String vname = "";
@@ -45,15 +44,15 @@
 
 		}
 	%>
-	<h1>登陆界面</h1>
-	<hr>
-	<form action="DoUser" method="post">
+	<div>
+	<form action="DoUser" method="post" style="width:250px;">
 		姓名:&nbsp;<input type="text" name="username" id="username"
 			value="<%=vname%>" autofocus="on" /><br> <br> 密码:&nbsp;<input
 			type="password" name="password" id="password" value="<%=vpass%>" /><br>
 		<br> <input type="checkbox" name="isUseCookie" value="是否自动登录" checked="checked"/>下次是否自动登录
 		&nbsp;&nbsp; <input type="submit" value="登陆" /> <br>
 	</form>
+	</div>
 	<!-- <a href="admin/register.jsp">注册</a> -->
 </body>
 </html>

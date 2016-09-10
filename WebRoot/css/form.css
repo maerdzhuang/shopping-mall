@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+ div{
+            /*边框为实现线*/
+            border: 50px solid transparent;
+            width:250px;
+            height: 125px;
+            /*设置内边距*/
+            padding: 15px 15px;
+            /*设置对其方式为居中*/
+            text-align: center;
+			font: normal 11px auto "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif; 
+            /*设置圆角边框*/
+            border-radius:25px;
+
+            /*设置边框图片,上右下左以200个像素点裁剪，覆盖方式是拉伸覆盖*/
+            border-image: url("../resource/border-image03.gif") 200 stretch;
+
+            /*设置边框阴影*/
+            box-shadow:10px 10px 50px grey;
+
+            /*设置定位相关属性*/
+            /*position: absolute;*/
+            position:relative;
+            left:470px;
+            top: 200px;
+
+            /*设置背景图片*/
+            background-image: url(../images/20.jpg);
+            background-repeat: no-repeat;
+            background-origin: border-box;
+            background-clip: border-box;
+            /*用于设置背景图片的大小，100%表示背景图片的宽和高为他所在组件的宽和高的100%*/
+            background-size: 50% 50%;
+            background-position:0 100%;
+        }
+        /*ui元素状态伪类选择器，获得焦点时的样式*/
+        input：focus{
+            color:blue;
+        }
+        /*鼠标悬停时的样式*/
+        input[type="button"]:hover{
+            color:blue;
+        }
