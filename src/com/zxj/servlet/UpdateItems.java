@@ -45,15 +45,12 @@ public class UpdateItems extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-//				System.out.println("invoked...");
 				request.setCharacterEncoding("utf-8");
 				//获取行号
 				int row = Integer.parseInt(request.getParameter("row"));
 				//根据获得列号确定需要修改的字段，id确定修改的记录，value确定修改后的内容
 				int col = Integer.parseInt(request.getParameter("col"));
 				String value=URLDecoder.decode(request.getParameter("value"), "utf-8");
-//				System.out.println(value);
 				int id = Integer.parseInt(request.getParameter("id"));
 				//获得输出对象，以及输出的字符集
 //				response.setContentType("text/plain;charset=utf-8");

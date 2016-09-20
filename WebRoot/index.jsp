@@ -18,11 +18,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 <meta http-equiv="description" content="This is my page">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 	<style type="text/css">
-	
 	div#singleItem{
 		float:left;
 		/* 外补丁*/
@@ -67,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="SingleItem">
 		<dl>
 			<dt id="image">
-				<a href="detail.jsp?id=<%=it.getId()%>"><img src="images/<%=it.getImage()%>"
+				<a href="detail02.jsp?id=<%=it.getId()%>"><img src="images/<%=it.getImage()%>"
 					width="250px" height="300px" alt="图片丢失"></a>
 			</dt>
 			<dt id="font">

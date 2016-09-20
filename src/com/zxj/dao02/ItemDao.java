@@ -135,13 +135,84 @@ public class ItemDao {
 		}
 		return true;
 	}
+	/**
+	 * 根据关键字，搜索出对应的商品集合
+	 * @param key
+	 * @return
+	 */
+	public ArrayList<Item> getItemsByKey(String key)
+	{
+		ArrayList<Item> arr = new ArrayList<>();
+		Connection conn = DBHelper.getConnection();
+		String sql = "SELECT id FROM item WHERE name LIKE '%"+key+"%';";
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next())
+			{
+				//获得商品id
+				int id = rs.getInt("id");
+				Item temp = getItemById(id);
+				arr.add(temp);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally
+		{
+			DBHelper.closeUtil(rs, ps);
+		}
+		return arr;
+	}
+	/**
+	 * 根据id删除商品
+	 * @param id
+	 * @return
+	 */
+	public boolean remove(int id)
+	{
+		Item it = getItemById(id);
+		//没有该类商品
+		if(it==null)
+			return false;
+		else
+		{
+			Connection conn = DBHelper.getConnection();
+			String sql = "delete from item where id="+id+";";
+			try {
+				ps = conn.prepareStatement(sql);
+				if(ps.executeUpdate()>0)
+					return true;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}	
+			finally{
+				if(ps!=null)
+					try {
+						ps.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+			}
+		}
+		return false;
+	}
 //	public static void main(String[] args) {
 //		ItemDao itdd = new ItemDao();
-//		ArrayList<Item> items= itdd.getCookie(",2,1,6,4");
-//		for(Item ite:items)
-//		{
-//			System.out.println(ite.getId()+ite.getName()+ite.getPrice()+","+ite.getImage());
-//		}
+		/*ArrayList<Item> items= itdd.getAllitems();
+		for(Item ite:items)
+		{
+			System.out.println(ite.getId()+ite.getName()+ite.getPrice()+","+ite.getImage());
+		}
+		System.out.println("-------------------------------------");*/
+	/*	System.out.println(itdd.remove(45));
+		ArrayList<Item> itemss= itdd.getAllitems();
+		for(Item ite:itemss)
+		{
+			System.out.println(ite.getId()+ite.getName()+ite.getPrice()+","+ite.getImage());
+		}*/
 //		System.out.println("end");
 //		Item ite = itdd.getItemById(10);
 //		System.out.println(ite.getId()+ite.getName()+ite.getPrice()+","+ite.getImage());

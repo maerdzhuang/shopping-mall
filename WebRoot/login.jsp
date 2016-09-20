@@ -1,3 +1,4 @@
+<!-- 管理员登录界面 -->
 <%@ page language="java" import="java.util.*,java.net.*"
 	contentType="text/html; charset=utf-8"%>
 <%
@@ -12,7 +13,7 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>登录</title>
+<title>管理员登录</title>
 
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
@@ -45,7 +46,7 @@
 		}
 	%>
 	<div>
-	<form action="DoUser" method="post" style="width:250px;">
+	<form action="DoUser?table=login" method="post" style="width:250px;">
 		姓名:&nbsp;<input type="text" name="username" id="username"
 			value="<%=vname%>" autofocus="on" /><br> <br> 密码:&nbsp;<input
 			type="password" name="password" id="password" value="<%=vpass%>" /><br>

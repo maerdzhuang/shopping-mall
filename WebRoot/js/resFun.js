@@ -32,11 +32,13 @@ function callbackFunc() {
 					innerHTML += "<td ondblclick=\"edit()\">" + name + "</td>";
 					innerHTML += "<td ondblclick=\"edit()\">" + price + "</td>";
 					innerHTML += "<td ondblclick=\"edit()\">" + image + "</td>";
+					innerHTML += "<td>"+"<img src='images/"+image+"' width=20% height=auto>" + "</td>";
+					innerHTML += "<td><a href='RemoveItem?id="+id+"'>删除</a></td>";
 					innerHTML += "</tr>";
 				}
 				// 跳转页数实现
 				innerHTML += "<tr>";
-				innerHTML += "<td colspan='4' style=\"text-align:center;\">";
+				innerHTML += "<td colspan='6' style=\"text-align:center;\">";
 
 				innerHTML += "[" + pageNum + "/" + maxPage + "]&nbsp;&nbsp;";
 				innerHTML += "<a href=\"javascript:void(0)\" onClick=\"getData(1)\">[首 页]</a> ";

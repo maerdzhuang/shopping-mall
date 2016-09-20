@@ -30,5 +30,6 @@
 			<li><a href="updateItem.jsp"><span>显示商品信息</span></a></li>
 		</ul>
 	</div>
+	
 </body>
 </html>

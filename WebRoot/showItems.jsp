@@ -38,14 +38,16 @@
 				<th>商品编号</th>
 				<th>商品名称</th>
 				<th>商品价格</th>
+				<th>商品图片路径</th>
 				<th>商品图片</th>
+				<th>删除商品</th>
 			</tr>
 			</thead>
 			<tbody id="content">
 			</tbody>
 			<tfoot>
 				<tr>
-					<td colspan="4" id="response"></td>
+					<td colspan="6" id="response"></td>
 				</tr>
 			</tfoot>
 		</table>

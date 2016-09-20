@@ -13,13 +13,19 @@ import com.zxj.util.DBHelper;
 public class UserDao {
 	PreparedStatement ps = null;
 	ResultSet rs = null;
-	//用来判断用户名和密码是否与数据库的相匹配,实现登录
-	public boolean isMatch(User user)
+	
+	/**
+	 * 用来判断用户名和密码是否与数据库的相匹配,实现登录
+	 * @param user 用户名和密码
+	 * @param table 用来区分是普通用户表格user，还是管理员表格login
+	 * @return
+	 */
+	public boolean isMatch(User user,String table)
 	{
 		Connection conn = DBHelper.getConnection();
 		try {
 			ps = conn
-					.prepareStatement("select * from login where username=? and password=?;");
+					.prepareStatement("select * from "+table+" where username=? and password=?;");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
 			rs= ps.executeQuery();
@@ -37,36 +43,41 @@ public class UserDao {
 		}
 		return false;
 	}
-//	//实现注册,已注册过的用户返回false,成功注册的返回true
-//	public boolean register(User user)
-//	{
-//		Connection conn = DBHelper.getConnection();
-//		if(!isMatch(user))
-//		{
-//			try {
-//				conn.setAutoCommit(false);
-//				ps = conn.prepareStatement("insert into login values(?,?)");
-//				ps.setString(1, user.getUsername());
-//				ps.setString(2, user.getPassword());
-//				if(ps.executeUpdate()>0)
-//				{
-//					conn.commit();
-//					return true;
-//				}
-//			} catch (SQLException e) {
-//				e.printStackTrace();
-//			}
-//			finally{
-//				try {
-//					if(ps!=null)
-//						ps.close();
-//				} catch (SQLException e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		}
-//		return false;	
-//	}
+	/**
+	 * 实现注册,已注册过的用户返回false,成功注册的返回true
+	 * @param user 用户名和密码
+	 * @param table 用来区分是普通用户表格user，还是管理员表格login
+	 * @return
+	 */
+	public boolean register(User user,String table)
+	{
+		Connection conn = DBHelper.getConnection();
+		if(!isMatch(user,table))
+		{
+			try {
+				conn.setAutoCommit(false);
+				ps = conn.prepareStatement("insert into "+table+" values(?,?)");
+				ps.setString(1, user.getUsername());
+				ps.setString(2, user.getPassword());
+				if(ps.executeUpdate()>0)
+				{
+					conn.commit();
+					return true;
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			finally{
+				try {
+					if(ps!=null)
+						ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return false;	
+	}
 
 //	public static void main(String[] args) {
 //		UserDao u = new UserDao();
