@@ -38,11 +38,10 @@
 		String welcome = (String)request.getSession().getAttribute("welcome"); 
 		if(welcome!=null){
 	%>
-		<h5><%=welcome%></h5>
+		<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=welcome%></h5>
 	<%}else{ %>
-	<h5><a href="userLogin.jsp">请先登录</a></h5>
+	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="userLogin.jsp">请先登录</a></h5>
 	<%} %>
-	<hr/>
 	</div>
 	<!--top-header-->
 	<div class="top-header">

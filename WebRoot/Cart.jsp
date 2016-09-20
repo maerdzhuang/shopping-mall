@@ -6,8 +6,8 @@
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
+	+ request.getServerName() + ":" + request.getServerPort()
+	+ path + "/";
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -21,23 +21,24 @@
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
 <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-<meta http-equiv="description" content="This is my page"> 
-<!-- 表格的样式控制--> 
-<link rel="stylesheet" type="text/css" href="css/table.css"> </head>
+<meta http-equiv="description" content="This is my page">
+<!-- 表格的样式控制-->
+<link rel="stylesheet" type="text/css" href="css/table.css">
+</head>
 <body>
-<div id="nav">
-<jsp:include page="header.jsp" />
+	<div id="nav">
+		<jsp:include page="header.jsp" />
 	</div>
 	<div id="content">
 		<!-- 获得所有商品的集合 -->
 		<%
 			Cart myCart = (Cart) request.getSession().getAttribute("myCart");
 			if (myCart != null) {
-			%>
+		%>
 		<table id="showItems">
 			<caption>购物清单</caption>
 			<tr>
-				<th>商品编号</th>
+				<th>商品图片</th>
 				<th>商品名称</th>
 				<th>商品单价</th>
 				<th>购买数量</th>
@@ -45,37 +46,40 @@
 			</tr>
 			<%
 				HashMap<Item, Integer> goods = myCart.getGoods();
-				// 返回一个键值对set集合
-				Set<Entry<Item, Integer>> items = goods.entrySet();
-				// 增强的for循环
-				for (Entry<Item, Integer> item : items) {
-					Item it = item.getKey();
-					int num = item.getValue();
+					// 返回一个键值对set集合
+					Set<Entry<Item, Integer>> items = goods.entrySet();
+					// 增强的for循环
+					for (Entry<Item, Integer> item : items) {
+						Item it = item.getKey();
+						int num = item.getValue();
 			%>
 
 			<tr id="it.getId()">
-				<td><%=it.getId()%></td>
+				<td><a href='detail02.jsp?id=<%=it.getId()%>' target="_blank"><img
+						src="images/<%=it.getImage()%>" width=20% height=autowidth=20%
+						height=auto /></a></td>
 				<td><a href='detail02.jsp?id=<%=it.getId()%>' target="_blank"><%=it.getName()%></a></td>
 				<td><%=it.getPrice()%></td>
 				<td><%=num%></td>
-				<td><a href="javascirpt:void(0)" onclick='remove("removeGood",<%=it.getId() %>)'>删除</a></td>
+				<td><a href="javascirpt:void(0)"
+					onclick='remove("removeGood",<%=it.getId()%>)'>删除</a></td>
 			</tr>
 			<%
 				}
-				%>
+			%>
 			<tr>
-				<td colspan="5">总计:$<%=myCart.totalValue()%></td>
+				<td colspan="5" style="text-align:right;">总计:$<%=myCart.totalValue()%></td>
 			</tr>
 			<%
 				}
-				else{
+					else{
 			%>
 			<div>
 				<h1>购物车为空</h1>
 			</div>
 			<%
-			}
-			 %>
+				}
+			%>
 		</table>
 	</div>
 	<!-- 获得XMLHttpRequest对象 -->
